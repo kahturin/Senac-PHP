@@ -67,3 +67,5 @@ switch ($clima) {}
 }
 
 echo "<br><br>Olha só $isso";
+
+*/
