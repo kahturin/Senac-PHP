@@ -20,6 +20,5 @@ $i = 0;
 
 do {
     echo "Linha: $i <br>";
-
     $i++;
 }
