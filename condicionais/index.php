@@ -1,69 +1,68 @@
 <?php
 
-ini_set('display_erros', 1);
-ini_set('display_startup_erros', 1);
-$clima = 'quente';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if ($clima == 'gelado'){
+$clima = 'morno';
 
-    echo "meu pé congela<br><br>";
+if ($clima == 'gelado') {
+    echo "<br><br>Meu pé congela<br><br>";
 }
 
+$bool = '1';
+$var = $bool === 1 ? '$bool é igual a 1' : '$bool é diferente de 1'; //=== ele não leva em consideração o tipo.
 
-/*$var = $bool == 1 ? '$bool é igual a 1' : '$bool é diferente de 1 ';
-*
- *   echo $var;
-*/
+echo $var . '<br><br>';
 
-$frase = 'Meu pai tinha um >>cachorro<< amarelo e rosa';
+$var = $bool == 1 ? '$bool é igual a 1' : '$bool é diferente de 1'; //=== ele não leva em consideração o tipo.
 
-    if (strpos($frase, 'Meu') !== false) {
+echo $var . '<br><br>';
 
-        echo "encontrei o Meu";
+$var = $bool != 1 ? '$bool é diferente de 1' : '$bool é igual a 1'; //=== ele não leva em consideração o tipo.
 
+echo $var . '<br><br>';
+
+$frase = 'Meu pai tinha um cachorro amarelo e rosa '; 
+    if (strpos($frase, 'cachorro')) {
+        echo "Encontrei o cachorro";
     } else {
-
-        echo "não há Meu algum";
+        echo "não encontrei algum";
     }
 
-
-//switch
-switch ($clima) {}
-        
+    $frase = 'Meu pai tinha um cachorro amarelo e rosa '; 
+    if (strpos($frase, 'Meu') != false) {
+        echo "Encontrei o Meu";
+    } else {
+        echo "<br><br>não encontrei o meu<br><br>";
+    }
+echo "<br><br>";
+switch ($clima) {
     case 'quente':
-    case 'tropical':
-
-        echo "Adoro clima quente!';
-            
-        if (true) {
-
-            echo '<br> -- if dentro do switch';
-
-            if (true) {
-
-                echo '<br> ---- if aninhado dentro de um switch';
-            }
-
-        }
-            break;
-
-        case 'morno':
-
-            echo 'morno é melhor que frio';
-
+    case 'tropical';
+        echo "adoro clima quente";
         break;
 
-        case 'frio':
+    case 'morno':
 
-            echo 'frio só de longe';
+        echo 'morno é melhor que frio';
+        break;
+    
+    case 'frio':
 
+        echo 'adoro quando está longe';
         break;
 
-        default:
+    case 'gelado':
 
+        echo 'canadá';
+        break;
+    default:
         echo 'clima desconhecido';
-
     break;
 }
 
-echo "<br><br>Olha só $isso";
+$isso = 'véi';
+
+$isso = $isso ?? 'coisa';
+echo "<br><br>olha só $isso";

@@ -1,11 +1,8 @@
+ 
 <?php
 
 //comentário
 
-/*
- * comentário de bloco
- *
- */
 
  //operador de atribuição:
 $saldo = 34.50; 
