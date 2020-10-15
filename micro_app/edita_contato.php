@@ -25,7 +25,7 @@ if (isset($_POST['id'])){
 
 $_GET['id'] = $_GET['id'] ?? $_POST['id'] ?? null;
 
-//Evita SQL injection - Mas prefira consulta preparada
+//Evita SQL injection (Mas prefira consulta preparada)
 $id = preg_replace('/\D/', '', $_GET['id']);
 
 $contato = array();

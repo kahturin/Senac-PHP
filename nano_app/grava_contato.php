@@ -39,7 +39,7 @@ if ( $objStmt->execute() ) {
 
 } else {
 
-	$msg = ' :-( deu erro, tente novamente! ';
+	$msg = 'Deu erro, tente novamente! ';
 }
 
 //Chama o template (front-end)
