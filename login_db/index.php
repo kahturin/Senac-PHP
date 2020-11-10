@@ -6,11 +6,9 @@ error_reporting(E_ALL);
 
 session_start();
 
-require_once 'db.php';
-
-$pass = password_hash('123456', PASSWORD_DEFAULT);
-
-$db->query("INSERT INTO usuario(nome, email, senha) VALUES ('karina', 'karina@senac.com', '123456!@')");
+$credenciais = [	0 => ['user' => 'bono@senac.br', 'pass' => '123456'],
+					1 => ['user' => 'marcos@senac.br', 'pass' => '654321'],
+					2 => ['user' => 'karina@senac.br', 'pass' => '222222']];
 
 if ( isset($_SESSION['login']) ) { //Caso o usuário já esteja logado no sistema
 
@@ -20,16 +18,10 @@ if ( isset($_SESSION['login']) ) { //Caso o usuário já esteja logado no sistem
 
 } elseif ( isset( $_POST['entrar'] ) ) { //Caso o usuário tenha acabado de preencher o form de login
 
-	$login = filter_var($_POST['login'], FILTER_SANITIZE_EMAIL);
+	$login = $_POST['login'];
 	$senha = $_POST['senha'];
 
-	//verificar se existe o usuario e pegar o hash da senha 
-	$r = $db->query("SELECT senha FROM usuario WHERE email = 'login'");
-	$reg = $r->fetch(PDO::FETCH_ASSOC);
-	$hash = $reg['senha']; 
-	//2. comparar a senha passada pelo usuario com o  hash armazenado no DB.
-
-	if (password_verify($senha, $hash)) {
+	if ( in_array( ['user' => $login, 'pass' => $senha], $credenciais) ) {
 
 		$_SESSION['login'] = $login;
 

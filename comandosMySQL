@@ -1,0 +1,45 @@
+//Comando para criar tabela
+
+CREATE TABLE cliente(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, nome CHAR(60), telefone BIGINT);
+
+//listar as colunas de uma tabela
+desc cliente;
+
+//Inserir dados na tabela
+INSERT INTO cliente (nome, telefone) VALUES('Karina Alves', '98737-9383');
+Query OK, 1 row affected, 1 warning (0.209 sec)
+
+MariaDB [tsiphp]> SELECT * FROM cliente;
++----+--------------+----------+
+| id | nome         | telefone |
++----+--------------+----------+
+|  1 | Karina Alves |    98737 |
++----+--------------+----------+
+1 row in set (0.076 sec)
+
+//Mostrar os dados inseridos:
+SELECT * FROM cliente;
++----+--------------+----------+
+| id | nome         | telefone |
++----+--------------+----------+
+|  1 | Karina Alves |    98737 |
++----+--------------+----------+
+
+//Alterar/atualizar dados numa tabela
+UPDATE cliente SET nome = 'Karininha' WHERE id = 1;
++----+--------------+-----------+
+| id | nome         | telefone  |
++----+--------------+-----------+
+|  1 | Karininha    |     98737 |
+|  2 | Karina Alves | 987379383 |
++----+--------------+-----------+
+
+//Deletar dados de uma tabela:
+DELETE FROM cliente WHERE id =1;
++----+--------------+-----------+
+| id | nome         | telefone  |
++----+--------------+-----------+
+|  2 | Karina Alves | 987379383 |
++----+--------------+-----------+
+
+

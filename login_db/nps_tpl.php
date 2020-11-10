@@ -1,7 +1,7 @@
 <?php
  
-session_start();
-require 'sessao.php';
+-session_start();
++require 'sessao.php';
  
  $_SESSION['nome'] = 'Bono';
  
@@ -9,7 +9,7 @@ require 'sessao.php';
  <html>
  	<head></head>
  	<body>
-		<?php include 'index_menu_tpl.php'; ?>
++		<?php include 'index_menu_tpl.php'; ?>
  		<center>
  			<h3>Qual a probabilidade de você recomendar minha <br>empresa para um colega ou amigo?</h3>
  			<br><br>
