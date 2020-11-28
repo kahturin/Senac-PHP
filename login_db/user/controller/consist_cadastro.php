@@ -1,31 +1,40 @@
 <?php
-
-$nome = $_POST['nome'] ?? null;
-$email = $_POST['email'] ?? null;
-$senha = $_POST['senha'] ?? null;
-$conf_senha = $_POST['conf_senha'] ?? null;
-
-$senha = trim($senha);
-$email = strtolower($email); //trata o email (deixa tudo minusculo)
-
-$erros = [];
-
-//verifica se o nome tem dois ou mais caractéres
-if(strlen($nome) < 2){
-    $erros[] =  'o nome tem que ter ao menos dois caracteres';
-}
-
-//verifica se o e-mail é válido
-if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $erros[] = 'e-mail inválido';
-} elseif(emailExistente($email)) {
-    $erros[] = 'E-mail já cadastrado';
-}
-
-//verifica se a senha tem no mínimo 8 caracteres
-if (strlen($senha) < 8){
-    $erros[] = 'A senha tem que ter ao menos 8 caractéres';
-}elseif($senha != $conf_senha){ //verifica se a confirmação da senha bate
-    $erros[] = 'A confirmação da senha nao é válido';
-}
-
+ 
+ $nome = $_POST['nome'] ?? null;
+ $email = $_POST['email'] ?? null;
+ $senha = $_POST['senha'] ?? null;
+ $conf_senha = $_POST['conf_senha'] ?? null;
+ 
+ $senha = trim($senha);
+ $email = strtolower( $email );//trata o e-mail - fica tudo minúsculo
+ 
+ $erros = [];
+ 
+ //Verifica se nome tem dois ou mais caracteres 
+ if ( strlen($nome) < 2 ) {
+ 
+ 	$erros[] = 'O nome tem que ter ao menos dois caracteres';
+ }
+ 
+ //Verifica se o e-mail é válido
+ if ( !filter_var( $email, FILTER_VALIDATE_EMAIL) ) {
+ 
+ 	$erros[] = 'E-mail inválido';
+ 
+} elseif ( ja_existe_email($email) ) {
+//faz o desvio do momento do cadastro e da edição com: && !isset($_POST['gravar'])
+} elseif ( ja_existe_email($email) && !isset($_POST['gravar']) ) {
+ 
+ 	$erros[] = 'E-mail já cadastrado';
+ }
+ 
+ //Verifica se a senha tem no mínimo 8 caracteres
+ if ( strlen($senha) < 8 ) {
+ 
+ 	$erros[] = 'A senha tem que ter ao menos oito caracteres';
+ 
+ //Verifica se a confirmação da senha bate
+ } elseif ( $senha != $conf_senha ) {
+ 
+ 	$erros[] = 'A confirmação da senha não é válida';
+ }
