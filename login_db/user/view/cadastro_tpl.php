@@ -13,7 +13,7 @@
 							<?php
 							if ( count($erros) > 0){
 								foreach ($erros as $erro) {
-									echo $erro . '<br>';
+									echo $erros. '<br>';
 								}
 							}
 							?>
