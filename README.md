@@ -2,6 +2,3 @@
 
 Teste no README
 
-25/08 teste
-
-testando novamente rs 
